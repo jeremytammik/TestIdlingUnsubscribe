@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Command">
+    <Text>Command TestIdlingUnsubscribe</Text>
+    <Description>Some description for TestIdlingUnsubscribe</Description>
+    <Assembly>TestIdlingUnsubscribe.dll</Assembly>
+    <FullClassName>TestIdlingUnsubscribe.Command</FullClassName>
+    <ClientId>fd3942a3-b332-4624-9f43-57c69b2ca615</ClientId>
+    <VendorId>TBC_</VendorId>
+    <VendorDescription>The Building Coder, http://thebuildingcoder.typepad.com</VendorDescription>
+  </AddIn>
+  <AddIn Type="Application">
+    <Name>Application TestIdlingUnsubscribe</Name>
+    <Assembly>TestIdlingUnsubscribe.dll</Assembly>
+    <FullClassName>TestIdlingUnsubscribe.App</FullClassName>
+    <ClientId>a095ac6c-90df-4e88-a71e-2e889e63739c</ClientId>
+    <VendorId>TBC_</VendorId>
+    <VendorDescription>The Building Coder, http://thebuildingcoder.typepad.com</VendorDescription>
+  </AddIn>
+</RevitAddIns>
