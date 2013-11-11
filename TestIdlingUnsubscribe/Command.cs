@@ -43,8 +43,8 @@ namespace TestIdlingUnsubscribe
       ref string message,
       ElementSet elements )
     {
-      Debug.Print( 
-        "We are currently {0}subscribed to the Idling event.", 
+      Debug.Print(
+        "We are currently {0}subscribed to the Idling event.",
         App.Subscribed ? "" : "not " );
 
       App.ToggleSubscription( OnIdling );

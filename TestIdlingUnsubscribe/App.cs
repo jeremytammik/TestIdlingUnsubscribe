@@ -13,9 +13,20 @@ namespace TestIdlingUnsubscribe
   class App : IExternalApplication
   {
     /// <summary>
+    /// Store the Idling event handler when subscribed.
+    /// </summary>
+    static EventHandler<IdlingEventArgs> _handler = null;
+
+    /// <summary>
     /// Are we currently subscribed to the Idling event?
     /// </summary>
-    public static bool Subscribed = false;
+    public static bool Subscribed
+    {
+      get
+      {
+        return null != _handler;
+      }
+    }
 
     /// <summary>
     /// Our one and only Revit-provided 
@@ -33,15 +44,15 @@ namespace TestIdlingUnsubscribe
       if( Subscribed )
       {
         Debug.Print( "Unsubscribing..." );
-        _uiapp.Idling -= handler;
-        Subscribed = false;
+        _uiapp.Idling -= _handler;
+        _handler = null;
         Debug.Print( "Unsubscribed." );
       }
       else
       {
         Debug.Print( "Subscribing..." );
         _uiapp.Idling += handler;
-        Subscribed = true;
+        _handler = handler;
         Debug.Print( "Subscribed." );
       }
     }
@@ -56,9 +67,7 @@ namespace TestIdlingUnsubscribe
     {
       if( Subscribed )
       {
-        _uiapp.Idling
-          -= new EventHandler<IdlingEventArgs>(
-            ( sender, ea ) => { } );
+        _uiapp.Idling -= _handler;
       }
       return Result.Succeeded;
     }
